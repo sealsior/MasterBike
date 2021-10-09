@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-10-2021 16:47:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Rol" table="ROL" schema="MBIKE">
+        <id name="idRol" type="big_decimal">
+            <column name="ID_ROL" precision="22" scale="0" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" not-null="true" />
+        </property>
+        <set name="usuarios" table="USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ROL" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>
