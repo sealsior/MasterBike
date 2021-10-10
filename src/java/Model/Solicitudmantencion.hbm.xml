@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Solicitudmantencion" table="SOLICITUDMANTENCION" schema="BDCLETA" optimistic-lock="version">
+        <id name="idSolMantencion" type="long">
+            <column name="ID_SOL_MANTENCION" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="Model.Usuario" fetch="select">
+            <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicio" class="Model.Servicio" fetch="select">
+            <column name="ID_SERVICIO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="retirodomicilio" type="char">
+            <column name="RETIRODOMICILIO" length="1" not-null="true" />
+        </property>
+        <property name="fecSolicitada" type="date">
+            <column name="FEC_SOLICITADA" length="7" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="200" />
+        </property>
+        <property name="estadosolicitud" type="string">
+            <column name="ESTADOSOLICITUD" length="25" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Reporte" table="REPORTE" schema="BDCLETA" optimistic-lock="version">
+        <id name="idReporte" type="long">
+            <column name="ID_REPORTE" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sucursal" class="Model.Sucursal" fetch="select">
+            <column name="ID_SUCURSAL" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="Model.Usuario" fetch="select">
+            <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="tiporeporte" type="string">
+            <column name="TIPOREPORTE" length="10" not-null="true" />
+        </property>
+        <property name="fecinicio" type="date">
+            <column name="FECINICIO" length="7" />
+        </property>
+        <property name="fecfin" type="date">
+            <column name="FECFIN" length="7" />
+        </property>
+        <property name="fecemision" type="date">
+            <column name="FECEMISION" length="7" not-null="true" />
+        </property>
+        <property name="sucursalreporte" type="string">
+            <column name="SUCURSALREPORTE" length="200" />
+        </property>
+        <property name="bicicletain" type="java.lang.Long">
+            <column name="BICICLETAIN" precision="10" scale="0" />
+        </property>
+        <property name="bicicletaout" type="java.lang.Long">
+            <column name="BICICLETAOUT" precision="10" scale="0" />
+        </property>
+        <property name="accesorioin" type="java.lang.Long">
+            <column name="ACCESORIOIN" precision="10" scale="0" />
+        </property>
+        <property name="accesorioout" type="java.lang.Long">
+            <column name="ACCESORIOOUT" precision="10" scale="0" />
+        </property>
+        <property name="totalventa" type="java.lang.Long">
+            <column name="TOTALVENTA" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/web/RegistroUsuario.jsp</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/src/java/Hibernate/HibernateUtil.java</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/src/java/DAO/UsuarioDAO.java</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/src/java/Controller/UsuarioController.java</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/web/newcss.css</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/web/index.html</file>
-            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/web/Registrate.jsp</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/Model/Rol.hbm.xml</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/Hibernate/HibernateUtil.java</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/web/index.html</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/web/Usuarios.jsp</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/Model/Rol.java</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/Controller/UsuarioController.java</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/MasterBike/src/java/Hibernate/hibernate.reveng.xml</file>
         </group>
     </open-files>
 </project-private>

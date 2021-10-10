@@ -5,13 +5,9 @@
  */
 package DAO;
 
-import Model.Usuario;
-import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import java.util.List;
 import Hibernate.HibernateUtil;
+import Model.Documentacion;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,16 +16,14 @@ import org.hibernate.Transaction;
  *
  * @author baggr
  */
-public class UsuarioDAO {
+public class DocumentacionDAO {
     
-    
-    
-    public boolean crear(Usuario usuario) {
+    public boolean crear(Documentacion docu) {
         boolean creado = false;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         try {
             Transaction tx = sesion.beginTransaction();
-            sesion.save(usuario);
+            sesion.save(docu);
             tx.commit();
             creado = true;
         } catch (Exception e) {
@@ -41,11 +35,11 @@ public class UsuarioDAO {
         return creado;
     }
     
-      public List<Usuario> listarUsuarios() {
-        List<Usuario> lista = null;
+      public List<Documentacion> listarDocumentacion() {
+        List<Documentacion> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
-        String hql = "FROM Usuario";
+        String hql = "FROM Documentacion";
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -56,12 +50,12 @@ public class UsuarioDAO {
         return lista;
     }
     
-    public void agregar(Usuario usuario) {
+    public void agregar(Documentacion docu) {
         Session sesion = null;
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.save(usuario);
+            sesion.save(docu);
             sesion.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -73,12 +67,12 @@ public class UsuarioDAO {
         }
     }
     
-    public void modificar(Usuario usuario) {
+    public void modificar(Documentacion docu) {
         Session sesion = null;
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.update(usuario);
+            sesion.update(docu);
             sesion.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -90,12 +84,12 @@ public class UsuarioDAO {
         }
     }
     
-    public void eliminar(Usuario usuario) {
+    public void eliminar(Documentacion docu) {
         Session sesion = null;
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.delete(usuario);
+            sesion.delete(docu);
             sesion.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -108,57 +102,44 @@ public class UsuarioDAO {
     }
     
     //Stored Procedures CRUD  
-    public void ingresarSP(Usuario usuario) {
+    public void ingresarSP(Documentacion docu) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin USUARIO_TAPI.ins(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Apaterno, :Idrol, :Rut, :Email, :Fechanac, :Apaterno, :Numero); end;");
-        query.setParameter("Nombre", usuario.getPnombre());
-        query.setParameter("Password", usuario.getPassword());
-        query.setParameter("Direccion", usuario.getDireccionUsuario());
-        query.setParameter("Apaterno", usuario.getAppaterno());
-        query.setParameter("Idrol", usuario.getRol());
-        query.setParameter("Rut", usuario.getRutUsuario());
-        query.setParameter("Email", usuario.getEmailUsuario());
-        query.setParameter("Fechanac", usuario.getFechanac());
-        query.setParameter("Apaterno", usuario.getAppaterno());
-        query.setParameter("Numero", usuario.getNumtelefono());
+        Query query = session.createSQLQuery("begin DOCUMENTACION_TAPI.ins(:Documento,SEQ_DOCUMENTACION.NEXTVAL,:Nomdocumento,:Idproducto,:Tipodocumento); end;");
+        query.setParameter("Documento", docu.getDocumento());
+        query.setParameter("Nomdocumento", docu.getNomdocumento());
+        query.setParameter("Idproducto", docu.getProducto());
+        query.setParameter("Tipodocumento", docu.getTipodocumento());
         query.executeUpdate();
         tx.commit();
         session.close();
 
     }
 
-    public void actualizarSP(Usuario usuario) {
+    public void actualizarSP(Documentacion docu) {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin USUARIO_TAPI.(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Apaterno, :Idrol, :Rut, :Email, :Fechanac, :Apaterno, :Numero); end;");
-        query.setParameter("Nombre", usuario.getPnombre());
-        query.setParameter("Password", usuario.getPassword());
-        query.setParameter("Direccion", usuario.getDireccionUsuario());
-        query.setParameter("Apaterno", usuario.getAppaterno());
-        query.setParameter("Idrol", usuario.getRol());
-        query.setParameter("Rut", usuario.getRutUsuario());
-        query.setParameter("Email", usuario.getEmailUsuario());
-        query.setParameter("Fechanac", usuario.getFechanac());
-        query.setParameter("Apaterno", usuario.getAppaterno());
-        query.setParameter("Numero", usuario.getNumtelefono());
+        Query query = session.createSQLQuery("begin DOCUMENTACION_TAPI.upd(:Documento,SEQ_DOCUMENTACION.NEXTVAL,:Nomdocumento,:Idproducto,:Tipodocumento); end;");
+        query.setParameter("Documento", docu.getDocumento());
+        query.setParameter("Nomdocumento", docu.getNomdocumento());
+        query.setParameter("Idproducto", docu.getProducto());
+        query.setParameter("Tipodocumento", docu.getTipodocumento());
         query.executeUpdate();
         tx.commit();
         session.close();
 
     }
 
-    public void eliminarSP(Usuario usuario) {
+    public void eliminarSP(Documentacion docu) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin USUARIO_TAPI.del(:id); end;");
-        query.setParameter("id", usuario.getIdUsuario());
+        Query query = session.createSQLQuery("begin DOCUMENTACION_TAPI.del(:id); end;");
+        query.setParameter("id", docu.getIdDocumentacion());
         query.executeUpdate();
         tx.commit();
         session.close();
 
     }
-
     
 }

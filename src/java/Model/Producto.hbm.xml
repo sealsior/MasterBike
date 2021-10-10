@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Producto" table="PRODUCTO" schema="BDCLETA" optimistic-lock="version">
+        <id name="idProducto" type="long">
+            <column name="ID_PRODUCTO" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreproducto" type="string">
+            <column name="NOMBREPRODUCTO" length="100" not-null="true" />
+        </property>
+        <property name="tipoproducto" type="string">
+            <column name="TIPOPRODUCTO" length="15" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="200" />
+        </property>
+        <property name="fabricpropia" type="string">
+            <column name="FABRICPROPIA" length="15" not-null="true" />
+        </property>
+        <property name="valproducto" type="long">
+            <column name="VALPRODUCTO" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="marca" type="string">
+            <column name="MARCA" length="15" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="MODELO" length="15" />
+        </property>
+        <property name="stock" type="long">
+            <column name="STOCK" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="imagen" type="blob">
+            <column name="IMAGEN" />
+        </property>
+        <set name="detalleventas" table="DETALLEVENTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUCTO" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Detalleventa" />
+        </set>
+        <set name="documentacions" table="DOCUMENTACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUCTO" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Documentacion" />
+        </set>
+    </class>
+</hibernate-mapping>

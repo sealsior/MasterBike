@@ -45,41 +45,34 @@ public class UsuarioController {
     
     @RequestMapping(value = "/crear-usuario", method = RequestMethod.POST)
     public String crearUsuarioPost(Model model,
-            @RequestParam("txtId") short IdUsuario,
             @RequestParam("txtPassword") String password,
             @RequestParam("txtUsuario") String username,
             @RequestParam("txtPnombre") String pnombre,
-            @RequestParam("txtSnombre") String snombre,
             @RequestParam("txtAppaterno") String appaterno,
             @RequestParam("txtApmaterno") String apmaterno,
             @RequestParam("txtEmailusuario") String email,
             @RequestParam("txtRutusuario") String rut,
-            @RequestParam("txtEdad") short edad,
             @RequestParam("txtFechanac") String fechanac,
             @RequestParam("txtDireccion") String direccion,
             @RequestParam("txtNumtelefono") int telefono,
-            @RequestParam("txtEstadocivil") char estcivil,
+       
             HttpServletRequest request,
             RedirectAttributes ra) {
         
         Usuario user = new Usuario();
         Rol rolito = new Rol();
         rolito.setIdRol(BigDecimal.ONE);
-        user.setIdUsuario(IdUsuario);
         user.setRol(rolito);
-        user.setUsername(username);
         user.setPassword(password);
         user.setPnombre(pnombre);
-        user.setSnombre(snombre);
         user.setAppaterno(appaterno);
         user.setApmaterno(apmaterno);
         user.setEmailUsuario(email);
         user.setRutUsuario(rut);
-        user.setEdad(edad);
         user.setFechanac(new Date());;
         user.setDireccionUsuario(direccion);
         user.setNumtelefono(telefono);
-        user.setEstadocivil(estcivil);
+      
 
         uDAO.ingresarSP(user);
         

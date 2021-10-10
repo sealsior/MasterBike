@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-10-2021 16:47:25 by Hibernate Tools 4.3.1 -->
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Model.Rol" table="ROL" schema="MBIKE">
+    <class name="Model.Rol" table="ROL" schema="BDCLETA" optimistic-lock="version">
         <id name="idRol" type="big_decimal">
             <column name="ID_ROL" precision="22" scale="0" />
-            <generator class="assigned"></generator>
+            <generator class="assigned" />
         </id>
         <property name="nombre" type="string">
             <column name="NOMBRE" length="50" not-null="true" />

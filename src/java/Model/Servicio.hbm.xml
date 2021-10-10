@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Servicio" table="SERVICIO" schema="BDCLETA" optimistic-lock="version">
+        <id name="idServicio" type="long">
+            <column name="ID_SERVICIO" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcionServicio" type="string">
+            <column name="DESCRIPCION_SERVICIO" length="200" not-null="true" />
+        </property>
+        <property name="precioservicio" type="long">
+            <column name="PRECIOSERVICIO" precision="10" scale="0" not-null="true" />
+        </property>
+        <set name="solicitudmantencions" table="SOLICITUDMANTENCION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SERVICIO" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Solicitudmantencion" />
+        </set>
+        <set name="mantencions" table="MANTENCION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SERVICIO" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Mantencion" />
+        </set>
+    </class>
+</hibernate-mapping>

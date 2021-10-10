@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Proveedor" table="PROVEEDOR" schema="BDCLETA" optimistic-lock="version">
+        <id name="idProveedor" type="long">
+            <column name="ID_PROVEEDOR" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="rutProveedor" type="string">
+            <column name="RUT_PROVEEDOR" length="10" not-null="true" />
+        </property>
+        <property name="nomProveedor" type="string">
+            <column name="NOM_PROVEEDOR" length="20" not-null="true" />
+        </property>
+        <property name="apeProveedor" type="string">
+            <column name="APE_PROVEEDOR" length="20" />
+        </property>
+        <property name="direccionProveedor" type="string">
+            <column name="DIRECCION_PROVEEDOR" length="25" />
+        </property>
+        <property name="telefonoProveedor" type="java.lang.Integer">
+            <column name="TELEFONO_PROVEEDOR" precision="9" scale="0" />
+        </property>
+        <property name="emailProveedor" type="string">
+            <column name="EMAIL_PROVEEDOR" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

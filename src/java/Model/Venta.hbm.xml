@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Venta" table="VENTA" schema="BDCLETA" optimistic-lock="version">
+        <id name="idVenta" type="long">
+            <column name="ID_VENTA" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="Model.Usuario" fetch="select">
+            <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechora" type="date">
+            <column name="FECHORA" length="7" not-null="true" />
+        </property>
+        <property name="totalventa" type="long">
+            <column name="TOTALVENTA" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="estadoventa" type="string">
+            <column name="ESTADOVENTA" length="25" />
+        </property>
+        <set name="detalleventas" table="DETALLEVENTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_VENTA" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Model.Detalleventa" />
+        </set>
+        <set name="seguimientoenvioses" table="SEGUIMIENTOENVIOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_VENTA" precision="3" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="Model.Seguimientoenvios" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Documentacion" table="DOCUMENTACION" schema="BDCLETA" optimistic-lock="version">
+        <id name="idDocumentacion" type="long">
+            <column name="ID_DOCUMENTACION" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="producto" class="Model.Producto" fetch="select">
+            <column name="ID_PRODUCTO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="tipodocumento" type="string">
+            <column name="TIPODOCUMENTO" length="20" />
+        </property>
+        <property name="nomdocumento" type="string">
+            <column name="NOMDOCUMENTO" length="20" />
+        </property>
+        <property name="documento" type="blob">
+            <column name="DOCUMENTO" />
+        </property>
+    </class>
+</hibernate-mapping>
