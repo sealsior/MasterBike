@@ -46,6 +46,12 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
     <property name="hibernate.connection.username">BDCLETA</property>
     <property name="hibernate.connection.password">masterbike</property>
+    <property name="hibernate.show_sql">true</property>
+    <!--    <property name="hibernate.current_session_context_class">managed</property>
+    <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>-->
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="format_sql">true</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
     <mapping resource="Model/Rol.hbm.xml"/>
     <mapping resource="Model/Usuario.hbm.xml"/>
     <mapping resource="Model/Seguimientoenvios.hbm.xml"/>

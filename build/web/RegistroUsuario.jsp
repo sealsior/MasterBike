@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +13,7 @@
         <title>Registro de usuarios</title>
     </head>
     <body>
-        <form action="./crear-usuario" method="post">
+        <form action="<c:url value="/ControladorUsuario" />" method="post">
           
             <label>Email usuario:</label>
             <input type="text" name="txtEmailusuario" id="txtEmailusuario" />
@@ -26,7 +27,7 @@
             <label>Apellido paterno:</label>
             <input type="text" name="txtAppaterno" id="txtAppaterno"/>
             <br>
-            <label>Apellido Materno:</label>
+            <label>Apellido materno:</label>
             <input type="text" name="txtApmaterno" id="txtApmaterno"/>
             <br>
             <label>Rut:</label>
@@ -41,7 +42,7 @@
             <label>Telefono:</label>
             <input type="number" name="txtNumtelefono" id="txtNumtelefono"/>
             <br>
-            <input type="submit" value="Crear Cliente" />
+            <input type="submit" value="Registro Usuario" />
             
         </form>
     </body>
