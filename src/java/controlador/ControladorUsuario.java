@@ -7,6 +7,7 @@ package controlador;
 
 import DAO.UsuarioDAO;
 import Model.Rol;
+import Model.Servicio;
 import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,11 +15,15 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -26,17 +31,25 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario"})
 public class ControladorUsuario extends HttpServlet {
+    
+    
+    
+    UsuarioDAO uDAO = new UsuarioDAO();
 
 
   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("test doget");
+        response.sendRedirect("/MasterBike/RegistroUsuario.jsp");
+        
+     
       
     }
-
-    UsuarioDAO uDAO = new UsuarioDAO();
+    
+    
+    
+    
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,7 +65,8 @@ public class ControladorUsuario extends HttpServlet {
         String direccion = request.getParameter("txtDireccion");
         String telefono = request.getParameter("txtNumtelefono");
         
-
+        
+        
         Usuario user = new Usuario();
         Rol rolito = new Rol();
         
@@ -78,10 +92,9 @@ public class ControladorUsuario extends HttpServlet {
         
 
           uDAO.ingresarSP(user);
-//
-//        ra.addFlashAttribute("mensajeAtencion", "El registro se almaceno correctamente");
+
         
-        response.sendRedirect("/MasterBike/RegistroUsuario.jsp");
+        response.sendRedirect("/MasterBike/ExitoUser.jsp");
   
     }
 

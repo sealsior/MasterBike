@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-10-2021 20:24:27 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Model.Usuario" table="USUARIO" schema="BDCLETA" optimistic-lock="version">
         <id name="idUsuario" type="long">
@@ -27,7 +27,7 @@
             <column name="APMATERNO" length="25" />
         </property>
         <property name="rutUsuario" type="string">
-            <column name="RUT_USUARIO" length="10" not-null="true" />
+            <column name="RUT_USUARIO" length="20" not-null="true" />
         </property>
         <property name="fechanac" type="date">
             <column name="FECHANAC" length="7" not-null="true" />
@@ -40,7 +40,7 @@
         </property>
         <set name="mantencions" table="MANTENCION" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
+                <column name="ID_USUARIO" precision="10" scale="0" not-null="true" />
             </key>
             <one-to-many class="Model.Mantencion" />
         </set>
@@ -55,12 +55,6 @@
                 <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
             </key>
             <one-to-many class="Model.Solicitudarriendo" />
-        </set>
-        <set name="solicitudmantencions" table="SOLICITUDMANTENCION" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
-            </key>
-            <one-to-many class="Model.Solicitudmantencion" />
         </set>
         <set name="reportes" table="REPORTE" inverse="true" lazy="true" fetch="select">
             <key>

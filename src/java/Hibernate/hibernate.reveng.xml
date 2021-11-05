@@ -48,7 +48,6 @@ Contributor(s):
   <table-filter match-name="MANTENCION"/>
   <table-filter match-name="DETALLEVENTA"/>
   <table-filter match-name="REPORTE"/>
-  <table-filter match-name="SOLICITUDMANTENCION"/>
   <table-filter match-name="PRODUCTO"/>
   <table-filter match-name="USUARIO"/>
   <table-filter match-name="SEGUIMIENTOENVIOS"/>

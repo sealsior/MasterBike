@@ -7,10 +7,15 @@ package DAO;
 
 import Hibernate.HibernateUtil;
 import Model.Solicitudarriendo;
+import Model.Servicio;
+import Model.Usuario;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -48,6 +53,23 @@ public class SolicitudarriendoDAO {
             t.rollback();
         }
         return lista;
+    }
+      
+    public List<Servicio> listarServicio() {
+        List<Servicio> servicios = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String hql = "from Servicio";
+            Query q = sesion.createQuery(hql);
+            servicios = q.list();
+
+        } catch (Exception e) {
+            System.out.println("Error en metodo listar:" + e.getMessage());
+        } finally {
+            sesion.close();
+        }
+
+        return servicios;
     }
     
     public void agregar(Solicitudarriendo solarri) {
@@ -101,7 +123,7 @@ public class SolicitudarriendoDAO {
         }
     }
     
-    //Stored Procedures CRUD  
+     
     public void ingresarSP(Solicitudarriendo solarri) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -146,6 +168,20 @@ public class SolicitudarriendoDAO {
         tx.commit();
         session.close();
 
+    }
+    
+    //Solicitudes por usuario
+    public List<Solicitudarriendo> buscarArriendosPorUsuario(Usuario usuario) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Solicitudarriendo where ID_USUARIO =:USUARIO");
+        query.setParameter("USUARIO", usuario);
+        List<Solicitudarriendo> arriendos = query.list();
+        return arriendos;
     }
     
 }

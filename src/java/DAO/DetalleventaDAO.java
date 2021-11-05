@@ -10,7 +10,10 @@ import Model.Detalleventa;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -139,5 +142,20 @@ public class DetalleventaDAO {
         session.close();
 
     }
+    
+    public List<Detalleventa> findID(long id) {//lista por id con hibernate
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        ///  SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Detalleventa where ID_VENTA=" + id);
+        List<Detalleventa> detalle = query.list();
+        session.close();
+        return detalle;
+
+    }
+    
     
 }
