@@ -52,20 +52,19 @@ Contributor(s):
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="format_sql">true</property>
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
-    <mapping resource="Model/Rol.hbm.xml"/>
     <mapping resource="Model/Usuario.hbm.xml"/>
-    <mapping resource="Model/Seguimientoenvios.hbm.xml"/>
-    <mapping resource="Model/Solicitudarriendo.hbm.xml"/>
-    <mapping resource="Model/Solicitudmantencion.hbm.xml"/>
-    <mapping resource="Model/Documentacion.hbm.xml"/>
+    <mapping resource="Model/Producto.hbm.xml"/>
+    <mapping resource="Model/Mantencion.hbm.xml"/>
     <mapping resource="Model/Venta.hbm.xml"/>
     <mapping resource="Model/Servicio.hbm.xml"/>
-    <mapping resource="Model/Mantencion.hbm.xml"/>
+    <mapping resource="Model/Seguimientoenvios.hbm.xml"/>
     <mapping resource="Model/Sucursal.hbm.xml"/>
+    <mapping resource="Model/Reporte.hbm.xml"/>
     <mapping resource="Model/Detalleventa.hbm.xml"/>
+    <mapping resource="Model/Documentacion.hbm.xml"/>
+    <mapping resource="Model/Rol.hbm.xml"/>
+    <mapping resource="Model/Solicitudarriendo.hbm.xml"/>
     <mapping resource="Model/Proveedor.hbm.xml"/>
     <mapping resource="Model/Pago.hbm.xml"/>
-    <mapping resource="Model/Producto.hbm.xml"/>
-    <mapping resource="Model/Reporte.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

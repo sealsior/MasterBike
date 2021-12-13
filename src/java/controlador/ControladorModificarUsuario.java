@@ -5,6 +5,7 @@
  */
 package controlador;
 
+<<<<<<< HEAD
 import DAO.UsuarioDAO;
 import Model.Rol;
 import Model.Usuario;
@@ -15,11 +16,30 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+=======
+
+import DAO.UsuarioDAO;
+import Model.Usuario;
+ 
+import java.io.IOException;
+import java.io.PrintWriter;
+>>>>>>> master
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+>>>>>>> master
 
 /**
  *
@@ -27,21 +47,33 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ControladorModificarUsuario", urlPatterns = {"/ControladorModificarUsuario"})
 public class ControladorModificarUsuario extends HttpServlet {
+<<<<<<< HEAD
     
     UsuarioDAO uDAO = new UsuarioDAO();
 
     
+=======
+
+    UsuarioDAO uDAO = new UsuarioDAO();
+    Usuario user = new Usuario();
+
+>>>>>>> master
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
     }
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> master
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+<<<<<<< HEAD
         try{
         String idUsuario = request.getParameter("txtId");
         String email = request.getParameter("txtEmailusuario");
@@ -107,3 +139,11 @@ public class ControladorModificarUsuario extends HttpServlet {
     }
 
 }
+=======
+    }
+    
+   
+        
+}
+
+>>>>>>> master

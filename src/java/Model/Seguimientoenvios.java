@@ -41,7 +41,31 @@ public class Seguimientoenvios  implements java.io.Serializable {
     public void setVenta(Venta venta) {
         this.venta = venta;
     }
+<<<<<<< HEAD
    
+=======
+    public String getTipoentrega() {
+        return this.tipoentrega;
+    }
+    
+    public void setTipoentrega(String tipoentrega) {
+        this.tipoentrega = tipoentrega;
+    }
+    public String getTipopago() {
+        return this.tipopago;
+    }
+    
+    public void setTipopago(String tipopago) {
+        this.tipopago = tipopago;
+    }
+    public String getDireccentrega() {
+        return this.direccentrega;
+    }
+    
+    public void setDireccentrega(String direccentrega) {
+        this.direccentrega = direccentrega;
+    }
+>>>>>>> master
     public String getEstadoentrega() {
         return this.estadoentrega;
     }
@@ -49,7 +73,17 @@ public class Seguimientoenvios  implements java.io.Serializable {
     public void setEstadoentrega(String estadoentrega) {
         this.estadoentrega = estadoentrega;
     }
+<<<<<<< HEAD
    
+=======
+    public String getEmptransporte() {
+        return this.emptransporte;
+    }
+    
+    public void setEmptransporte(String emptransporte) {
+        this.emptransporte = emptransporte;
+    }
+>>>>>>> master
     public Date getFecdespacho() {
         return this.fecdespacho;
     }

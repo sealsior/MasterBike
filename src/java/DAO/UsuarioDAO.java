@@ -17,6 +17,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 
 /**
  *
@@ -110,10 +115,18 @@ public class UsuarioDAO {
     public void ingresarSP(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
+<<<<<<< HEAD
         Query query = session.createSQLQuery("begin USUARIO_TAPI.ins(:Convenio,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion, :Idrol, :Email,:Apellidos, :Rut, :Fechanac, :Nombre, :Numero); end;");
         query.setParameter("Convenio", usuario.getConvenio());
         query.setParameter("Password", usuario.getPassword());
         query.setParameter("Direccion", usuario.getDireccionUsuario());
+=======
+        Query query = session.createSQLQuery("begin USUARIO_TAPI.ins(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Amaterno, :Idrol, :Email, :Rut, :Fechanac, :Apaterno, :Numero); end;");
+        query.setParameter("Nombre", usuario.getPnombre());
+        query.setParameter("Password", usuario.getPassword());
+        query.setParameter("Direccion", usuario.getDireccionUsuario());
+        query.setParameter("Amaterno", usuario.getApmaterno());
+>>>>>>> master
         query.setParameter("Idrol", usuario.getRol());
         query.setParameter("Email", usuario.getEmailUsuario());
         query.setParameter("Apellidos", usuario.getApellidos());
@@ -131,9 +144,14 @@ public class UsuarioDAO {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
+<<<<<<< HEAD
         Query query = session.createSQLQuery("begin USUARIO_TAPI.upd(:Convenio,:Idusuario,:Password,:Direccion, :Idrol, :Email,:Apellidos, :Rut, :Fechanac, :Nombre, :Numero); end;");
         query.setParameter("Convenio", usuario.getConvenio());
         query.setParameter("Idusuario", usuario.getIdUsuario());
+=======
+        Query query = session.createSQLQuery("begin USUARIO_TAPI.(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Apaterno, :Idrol, :Email, :Rut, :Fechanac, :Apaterno, :Numero); end;");
+        query.setParameter("Nombre", usuario.getPnombre());
+>>>>>>> master
         query.setParameter("Password", usuario.getPassword());
         query.setParameter("Direccion", usuario.getDireccionUsuario());
         query.setParameter("Idrol", usuario.getRol());
@@ -159,8 +177,13 @@ public class UsuarioDAO {
         session.close();
 
     }
+<<<<<<< HEAD
 
     public List<Usuario> find(String mail) {
+=======
+    
+     public List<Usuario> find(String mail) {
+>>>>>>> master
         Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
                 applySettings(configuration.getProperties());
@@ -172,6 +195,7 @@ public class UsuarioDAO {
         session.close();
         return usuario;
     }
+<<<<<<< HEAD
 
     public List<Usuario> findPorId(String id) {
         Configuration configuration = new Configuration().configure();
@@ -212,4 +236,24 @@ public class UsuarioDAO {
         return usuario;
     }
 
+=======
+     
+     public Usuario buscarUsuarioPorId(int id) {
+        Usuario usuario = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String hql = "select d from Usuario d where d.ID_USUARIO = :idbuscado";
+            Query q = sesion.createQuery(hql);
+            q.setInteger("idbuscado", id);
+            usuario = (Usuario) q.list().get(0);
+        } catch (Exception e) {
+            System.out.println("Error Creacion DAO:" + e.getMessage());
+         
+        } finally {
+            sesion.close();
+        }
+        return usuario;
+    }
+    
+>>>>>>> master
 }

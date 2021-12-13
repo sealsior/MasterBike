@@ -13,7 +13,10 @@ import Model.Servicio;
 
 import Model.Usuario;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.text.ParseException;
+=======
+>>>>>>> master
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,6 +65,10 @@ public class ControladorMantencion extends HttpServlet {
         
       
        
+<<<<<<< HEAD
+=======
+        try {
+>>>>>>> master
         String IdServicio = request.getParameter("cboServicio");
         String comentario = request.getParameter("txtComentario");
         String retiro = request.getParameter("cboRetiro");
@@ -76,6 +83,7 @@ public class ControladorMantencion extends HttpServlet {
         mant.setComentarios(comentario);
         mant.setRetirodomicilio(retiro.charAt(0));
         mant.setEstadosolicitud("Pendiente");
+<<<<<<< HEAD
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date fechaDate = formato.parse(fechasol);
@@ -104,9 +112,39 @@ public class ControladorMantencion extends HttpServlet {
             
         
              
+=======
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        Date fechaDate = formato.parse(fechasol);
+        mant.setFecSolicitada(fechaDate);
+        
+            
+        //Se modifica luego por Tecnico
+        
+        mant.setGarantia("N");
+        mant.setFecingreso(fechaDate);
+        mant.setFecsalida(fechaDate);
+        mant.setValortotal(Long.valueOf(0));
+            
+            
+            manDAO.ingresarSP(mant);
+            
+            
+        
+        request.setAttribute("mensajeSalida","Solicitud de mantencion enviada");
+        } catch (Exception ex) {
+            
+            request.setAttribute("mensajeSalida","No se pudo enviar la solicitud");
+        }
+        
+>>>>>>> master
         response.sendRedirect("/MasterBike/ExitoSolman.jsp");
         
     }
 
     
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> master

@@ -7,11 +7,17 @@ package controlador;
 
 import DAO.ProductoDAO;
 import Model.Producto;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Blob;
 import java.util.ArrayList;
+=======
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Blob;
+>>>>>>> master
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,11 +25,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import modelo.Producto1;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+=======
+>>>>>>> master
 
 /**
  *
@@ -35,11 +44,14 @@ public class ControladorProducto extends HttpServlet {
     String edit="EditarProducto.jsp";
     String listar="ListaProducto.jsp";
     long id;
+<<<<<<< HEAD
     
     ProductoDAO pdaoo=new ProductoDAO();
     Producto pp=new Producto();
     
     Producto1 p1 = new Producto1();
+=======
+>>>>>>> master
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,7 +66,12 @@ public class ControladorProducto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+<<<<<<< HEAD
        
+=======
+        
+        
+>>>>>>> master
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -135,6 +152,7 @@ public class ControladorProducto extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
+<<<<<<< HEAD
        Producto ppp = new Producto();
                 ArrayList<String> lista = new ArrayList<>();
                 try {
@@ -163,6 +181,31 @@ public class ControladorProducto extends HttpServlet {
         pDAO.ingresarSP(ppp);
         } catch (Exception e) {
                 }
+=======
+        String nombres = request.getParameter("txtNombre");
+        String tipo = request.getParameter("txtTipo");
+        String descripcion = request.getParameter("txtDescripcion");
+        String fpropia = request.getParameter("txtProveedor");
+        String valor = request.getParameter("txtValor");
+        String marca = request.getParameter("txtMarca");
+        String modelo = request.getParameter("txtModelo");
+        String stock = request.getParameter("txtStock");
+        //String imagen = request.getParameter("fileImagen");
+        
+        Producto p = new Producto();
+        
+        p.setNombreproducto(nombres);
+        p.setTipoproducto(tipo);
+        p.setDescripcion(descripcion);
+        p.setFabricpropia(fpropia);
+        p.setValproducto(Long.parseLong(valor));//
+        p.setMarca(marca);
+        p.setModelo(modelo);
+        p.setStock(Long.parseLong(stock));
+        //p.setImagen(null);
+        
+        pDAO.ingresarSP(p);
+>>>>>>> master
         
         response.sendRedirect("/MasterBike/ListaProducto.jsp");
         

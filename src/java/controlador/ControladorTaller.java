@@ -9,17 +9,24 @@ import DAO.MantencionDAO;
 import Model.Mantencion;
 import Model.Servicio;
 import Model.Usuario;
+<<<<<<< HEAD
 import com.sun.mail.smtp.SMTPMessage;
+=======
+>>>>>>> master
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.Properties;
+=======
+>>>>>>> master
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -27,6 +34,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+=======
+
+>>>>>>> master
 /**
  *
  * @author baggr
@@ -46,7 +56,11 @@ public class ControladorTaller extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+<<<<<<< HEAD
     
+=======
+        System.out.println("antes sacar datos");
+>>>>>>> master
             
         try{   
         String idMantencion = request.getParameter("txtId");
@@ -60,7 +74,10 @@ public class ControladorTaller extends HttpServlet {
         String fechaout = request.getParameter("txtFechaOut"); 
         String valor = request.getParameter("txtValor");
         String estado = request.getParameter("txtEstado");
+<<<<<<< HEAD
         String mail = request.getParameter("txtMail");
+=======
+>>>>>>> master
         
         Mantencion m = new Mantencion();
         Usuario user = new Usuario();
@@ -103,6 +120,7 @@ public class ControladorTaller extends HttpServlet {
        
              
         manDAO.actualizarSP(m);
+<<<<<<< HEAD
             
         
         Properties props = new Properties();
@@ -143,6 +161,9 @@ public class ControladorTaller extends HttpServlet {
             }
             
               
+=======
+        
+>>>>>>> master
             
         
         request.setAttribute("mensajeSalida","Solicitud de mantencion enviada");
@@ -157,4 +178,8 @@ public class ControladorTaller extends HttpServlet {
 
      
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

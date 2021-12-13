@@ -11,6 +11,7 @@ package modelo;
  */
 public class Carrito {
     
+<<<<<<< HEAD
     long item;
     long idProducto;
     String nombres;
@@ -18,11 +19,24 @@ public class Carrito {
     long precio;
     long cantidad;
     long subtotal;
+=======
+    int item;
+    int idProducto;
+    String nombres;
+    String descripcion;
+    int precio;
+    int cantidad;
+    int subtotal;
+>>>>>>> master
 
     public Carrito() {
     }
 
+<<<<<<< HEAD
     public Carrito(long item, long idProducto, String nombres, String descripcion, long precio, long cantidad, long subtotal) {
+=======
+    public Carrito(int item, int idProducto, String nombres, String descripcion, int precio, int cantidad, int subtotal) {
+>>>>>>> master
         this.item = item;
         this.idProducto = idProducto;
         this.nombres = nombres;
@@ -32,6 +46,7 @@ public class Carrito {
         this.subtotal = subtotal;
     }
 
+<<<<<<< HEAD
     public long getItem() {
         return item;
     }
@@ -45,6 +60,21 @@ public class Carrito {
     }
 
     public void setIdProducto(long idProducto) {
+=======
+    public int getItem() {
+        return item;
+    }
+
+    public void setItem(int item) {
+        this.item = item;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+>>>>>>> master
         this.idProducto = idProducto;
     }
 
@@ -64,6 +94,7 @@ public class Carrito {
         this.descripcion = descripcion;
     }
 
+<<<<<<< HEAD
     public long getPrecio() {
         return precio;
     }
@@ -85,6 +116,29 @@ public class Carrito {
     }
 
     public void setSubtotal(long subtotal) {
+=======
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(int subtotal) {
+>>>>>>> master
         this.subtotal = subtotal;
     }
     

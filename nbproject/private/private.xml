@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/src/java/controlador/ControladorContacto.java</file>
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/web/inicio.jsp</file>
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/src/java/controlador/ControladorListarMantencionesTaller.java</file>
@@ -29,6 +30,10 @@
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/src/java/Config/Conexion.java</file>
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/src/java/controlador/ControladorUsuario.java</file>
             <file>file:/C:/Users/Marco/Desktop/master/MasterBike/src/java/controlador/ControladorLogin.java</file>
+=======
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/web/inicio.jsp</file>
+            <file>file:/C:/Users/baggr/Desktop/Repositorios/MasterBike/src/java/Model/Proveedor.hbm.xml</file>
+>>>>>>> master
         </group>
     </open-files>
 </project-private>

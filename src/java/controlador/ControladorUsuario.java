@@ -33,6 +33,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario"})
 public class ControladorUsuario extends HttpServlet {
+    
+    
+    
+    UsuarioDAO uDAO = new UsuarioDAO();
 
     UsuarioDAO uDAO = new UsuarioDAO();
 
@@ -40,9 +44,21 @@ public class ControladorUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.sendRedirect("/MasterBike/RegistroUsuario.jsp");
+<<<<<<< HEAD
 
     }
 
+=======
+        
+     
+      
+    }
+    
+    
+    
+    
+    
+>>>>>>> master
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -55,6 +71,7 @@ public class ControladorUsuario extends HttpServlet {
         String fechanac = request.getParameter("txtFechanac");
         String direccion = request.getParameter("txtDireccion");
         String telefono = request.getParameter("txtNumtelefono");
+<<<<<<< HEAD
 
         List<Usuario> lstBusquedaUsuario = uDAO.find(email);
 
@@ -88,8 +105,34 @@ public class ControladorUsuario extends HttpServlet {
               
               request.setAttribute("errorUsuario", "El email ingresado ya se encuentra registrado");
               request.getRequestDispatcher("/ErrorRegistro.jsp").forward(request, response);
+=======
+        
+        
+        
+        Usuario user = new Usuario();
+        Rol rolito = new Rol();
+        
+        rolito.setIdRol(BigDecimal.ONE);
+        user.setRol(rolito);
+        user.setEmailUsuario(email);
+        user.setPassword(passwd);
+        user.setPnombre(pnombre);
+        user.setAppaterno(apaterno);
+        user.setApmaterno(amaterno);
+        user.setRutUsuario(rut);
+        user.setDireccionUsuario(direccion);
+        user.setNumtelefono(Integer.parseInt(telefono));
+
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        
+        try {
+            Date fechaDate = formato.parse(fechanac);
+            user.setFechanac(fechaDate);
+        } catch (ParseException ex) {
+>>>>>>> master
         }
 
+<<<<<<< HEAD
     }
 
     
@@ -106,6 +149,13 @@ public class ControladorUsuario extends HttpServlet {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+=======
+          uDAO.ingresarSP(user);
+
+        
+        response.sendRedirect("/MasterBike/ExitoUser.jsp");
+  
+>>>>>>> master
     }
 
     

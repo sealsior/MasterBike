@@ -55,7 +55,11 @@ public class ControladorEditarProducto extends HttpServlet {
                 String marca = request.getParameter("txtMarca");
                 String modelo = request.getParameter("txtModelo");
                 String stock = request.getParameter("txtStock");
+<<<<<<< HEAD
                 String imagen = request.getParameter("fileImagen");
+=======
+                //String imagen = request.getParameter("fileImagen");
+>>>>>>> master
 
                 Producto pp = new Producto();
                 //p.setIdProducto(Long.parseLong(idP));
@@ -68,7 +72,11 @@ public class ControladorEditarProducto extends HttpServlet {
                 pp.setMarca(marca);
                 pp.setModelo(modelo);
                 pp.setStock(Long.parseLong(stock));
+<<<<<<< HEAD
                 pp.setImagen(imagen);
+=======
+                //p.setImagen(null);
+>>>>>>> master
 
                 pdao.modificar(pp);
                 request.getRequestDispatcher("ListaProducto.jsp").forward(request, response);

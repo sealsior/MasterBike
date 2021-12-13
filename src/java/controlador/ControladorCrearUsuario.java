@@ -13,8 +13,11 @@ import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.math.BigInteger;
 import java.security.MessageDigest;
+=======
+>>>>>>> master
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,14 +55,26 @@ public class ControladorCrearUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+<<<<<<< HEAD
         String email = request.getParameter("txtEmailusuario");
         String passwd = request.getParameter("txtPassword");
         String nombre = request.getParameter("txtNombre");
         String apellidos = request.getParameter("txtApellidos");
+=======
+        Rol rolito = new Rol();
+        Usuario user = new Usuario();
+        
+        String email = request.getParameter("txtEmailusuario");
+        String passwd = request.getParameter("txtPassword");
+        String pnombre = request.getParameter("txtPnombre");
+        String apaterno = request.getParameter("txtAppaterno");
+        String amaterno = request.getParameter("txtApmaterno");
+>>>>>>> master
         String rut = request.getParameter("txtRutusuario");
         String fechanac = request.getParameter("txtFechanac");
         String direccion = request.getParameter("txtDireccion");
         String telefono = request.getParameter("txtNumtelefono");
+<<<<<<< HEAD
         String convenio = request.getParameter("cboConvenio");
         String idRol = request.getParameter("cboRol");
         
@@ -80,6 +95,23 @@ public class ControladorCrearUsuario extends HttpServlet {
         user.setDireccionUsuario(direccion);
         user.setNumtelefono(Integer.parseInt(telefono));
         user.setConvenio(convenio);
+=======
+        String idRol = request.getParameter("cboRol");
+        
+        BigDecimal bigDecimal = new BigDecimal(idRol);
+        
+        rolito.setIdRol(bigDecimal);
+     
+        user.setRol(rolito);
+        user.setEmailUsuario(email);
+        user.setPassword(passwd);
+        user.setPnombre(pnombre);
+        user.setAppaterno(apaterno);
+        user.setApmaterno(amaterno);
+        user.setRutUsuario(rut);
+        user.setDireccionUsuario(direccion);
+        user.setNumtelefono(Integer.parseInt(telefono));
+>>>>>>> master
 
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         
@@ -89,6 +121,7 @@ public class ControladorCrearUsuario extends HttpServlet {
         } catch (ParseException ex) {
         }
         
+<<<<<<< HEAD
         uDAO.ingresarSP(user);
                 
         response.sendRedirect("ListarUsuarios.jsp");
@@ -97,12 +130,21 @@ public class ControladorCrearUsuario extends HttpServlet {
             request.getRequestDispatcher("/ErrorCreacionUsuario.jsp").forward(request, response);
             
         }
+=======
+        
+
+          uDAO.ingresarSP(user);
+
+        
+        response.sendRedirect("ControladorListarUsuarios");
+>>>>>>> master
   
         
         
     }
         
         
+<<<<<<< HEAD
         public String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -117,8 +159,15 @@ public class ControladorCrearUsuario extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+=======
+        
+>>>>>>> master
     
 
  
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

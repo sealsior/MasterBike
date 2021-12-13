@@ -9,7 +9,10 @@
 <html lang="es">
 
 <head>
+<<<<<<< HEAD
     <link rel="shortcut icon" href="https://masterbike.ro/img/favicon.ico?1636634012">
+=======
+>>>>>>> master
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="Refresh" content="3;URL=inicio.jsp">
@@ -24,6 +27,7 @@
                 
                  text-align: center;
                 }
+<<<<<<< HEAD
                 
                 html,body{
        width: 100%;
@@ -55,17 +59,24 @@
 @keyframes rotate {
 100% {transform: rotate(360deg);}
 } 
+=======
+>>>>>>> master
         </style>
     <title>Inicio de sesión exitoso</title>
         </head>
         <body>
          
+<<<<<<< HEAD
             <div><a class="navbar-brand logo_h" href="inicio.jsp"><img src="https://i.ibb.co/CH3Ln98/logo.png" alt=""></a></div>
+=======
+            <div><a class="navbar-brand logo_h" href="inicio.jsp"><img src="https://i.ibb.co/S0J0VKs/logo.png" alt=""></a></div>
+>>>>>>> master
          
             
          
         <div class="container mt-3">
         
+<<<<<<< HEAD
             
             <br>   
             <br>
@@ -82,6 +93,11 @@
 </div> 
         <div class="mt-4 p-4">
         <h1>Bienvenido: <c:out value="${usuarioActivo.getNombre()} ${usuarioActivo.getApellidos()}"/></h1>
+=======
+            <h1>Sesión iniciada correctamente</h1>
+        <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>Bienvenido <c:out value="${usuarioActivo.getPnombre()}"/></h1>
+>>>>>>> master
          </div>
         
         <br>
@@ -94,6 +110,7 @@
             <br>
             
             <!-- Footer -->
+<<<<<<< HEAD
                 <footer class="bg-dark text-center text-white">
                     <!-- Grid container -->
                     <div class="container p-4">
@@ -272,6 +289,194 @@
                 <!-- Copyright -->
             </footer>
                 <!-- Footer -->          
+=======
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Suscribete a nuestras noticias</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21">Tu email</label>
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Suscribir
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        La fabrica de bicicletas San Diego nacio en el año 1990 en la ciudad de Santiago como respuesta a 
+        la cresciente demanda de bicicletas de los habitantes de la capital, hoy, 31 años despúes bajo la
+        nueva marca "Masterbik" busca nuevamente ser protagonista del ciclismo nacional ofreciendo nuevos 
+        servicios de acuerdo a las necesidades de los riders chilenos.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Categorias</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Nuestros productos</a>
+            </li>
+            <li>
+              <a href="ControladorMantencion" class="text-white">Taller de bicicletas</a>
+            </li>
+            <li>
+              <a href="SolicitudArriendo.jsp" class="text-white">Arriendo de bicicletas</a>
+            </li>
+            
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Nuestros socios</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://bike.shimano.com/" class="text-white">Shimano</a>
+            </li>
+            <li>
+              <a href="https://www.ridefox.com/" class="text-white">Fox</a>
+            </li>
+            <li>
+              <a href="https://www.sram.com/" class="text-white">Sram</a>
+            </li>
+           
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Atención al cliente</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Contáctanos</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Terminos y condiciones</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Seguimiento de envios</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Aviso legal</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="">Sealsior</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->  
+            
+            
+            
+>>>>>>> master
             
             
         <!-- JavaScript -->

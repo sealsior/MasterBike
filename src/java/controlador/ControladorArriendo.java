@@ -50,7 +50,11 @@ public class ControladorArriendo extends HttpServlet {
       String fecfin = request.getParameter("txtFecfin");
       String fomapago = request.getParameter("cboFormaPago");
       String garantia = request.getParameter("txtGarantia");
+<<<<<<< HEAD
 //      String estado = request.getParameter("txtEstado");
+=======
+      String comentario = request.getParameter("txtComentario");
+>>>>>>> master
       
       solarr.setTipobicicleta(tipobici);
       
@@ -70,11 +74,19 @@ public class ControladorArriendo extends HttpServlet {
         
       solarr.setFormapagoArri(fomapago);
       solarr.setDepositogarantia(Integer.parseInt(garantia));
+<<<<<<< HEAD
       solarr.setEstado("Pendiente");
       
       user = (Usuario) session.getAttribute("usuarioActivo");
       solarr.setUsuario(user);
 //      solarr.setUsuario(user);
+=======
+      solarr.setComentario(comentario);
+      
+      user = (Usuario) session.getAttribute("usuarioActivo");
+      solarr.setUsuario(user);
+      solarr.setUsuario(user);
+>>>>>>> master
       
       saDAO.ingresarSP(solarr);
       

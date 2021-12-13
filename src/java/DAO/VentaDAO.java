@@ -8,12 +8,20 @@ package DAO;
 import Config.Conexion;
 import Hibernate.HibernateUtil;
 import Model.Detalleventa;
+<<<<<<< HEAD
 import Model.Usuario;
+=======
+
+>>>>>>> master
 import Model.Venta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+
+>>>>>>> master
 import java.util.List;
 import modelo.Carrito;
 import modelo.Compras;
@@ -132,7 +140,7 @@ public class VentaDAO {
         }
     }
     
-    //Stored Procedures CRUD  
+ 
     public void ingresarSP(Venta venta) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -179,6 +187,10 @@ public class VentaDAO {
         
         String sql="begin VENTA_TAPI.ins(:Estado,:Totalventa,:Idusuario,SEQ_VENTA.NEXTVAL,:Fechora); end;";
         try {
+<<<<<<< HEAD
+=======
+            
+>>>>>>> master
             con=cn.conectar();
             ps=con.prepareStatement(sql);
             ps.setString(1, compra.getEstado());
@@ -188,15 +200,24 @@ public class VentaDAO {
             
             r=ps.executeUpdate();
             
+<<<<<<< HEAD
             /*sql="SELECT @@IDENTITY AS ID_VENTA";
             rs=ps.executeQuery(sql);
             rs.next();
             idventa=rs.getInt("ID_VENTA");
             rs.close();*/
+=======
+            sql="SELECT @@IDENTITY AS ID_VENTA";
+            rs=ps.executeQuery(sql);
+            rs.next();
+            idventa=rs.getInt("ID_VENTA");
+            rs.close();
+>>>>>>> master
             
             for (Carrito detalle : compra.getDetallecompras()) {
                 sql="begin DETALLEVENTA_TAPI.ins(:Precioventa,:IdProducto,SEQ_DETALLE_VENTA.NEXTVAL,:Cantidad,SEQ_VENTA.CURRVAL); end;";
                 ps=con.prepareStatement(sql);
+<<<<<<< HEAD
                 ps.setLong(1, detalle.getPrecio());
                 ps.setLong(2, detalle.getIdProducto());
                 ps.setLong(3, detalle.getCantidad());             
@@ -207,6 +228,16 @@ public class VentaDAO {
             ps.close();
             rs.close();
             cn.desconectar();
+=======
+                ps.setInt(1, detalle.getPrecio());
+                ps.setInt(2, detalle.getIdProducto());
+                ps.setInt(3, detalle.getCantidad());             
+                ps.setInt(4, idventa);
+     
+                r=ps.executeUpdate();
+            }
+            
+>>>>>>> master
             
             
         } catch (Exception e) {
@@ -223,7 +254,11 @@ public class VentaDAO {
         SessionFactory sf = configuration.buildSessionFactory(builder.build());
         ///  SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
+<<<<<<< HEAD
         Query query = session.createQuery(" from Venta where TOTALVENTA>0 AND ID_USUARIO= " + id);
+=======
+        Query query = session.createQuery(" from Venta where ID_USUARIO= " + id);
+>>>>>>> master
         List<Venta> detalle = query.list();
         session.close();
         return detalle;
@@ -244,6 +279,7 @@ public class VentaDAO {
 
     }
     
+<<<<<<< HEAD
     public Venta listaridd(String id){//Listar 
            String sql = "select * from venta where ID_VENTA= " + id;
            Venta p = new Venta();
@@ -268,5 +304,8 @@ public class VentaDAO {
             
            return p;
     }
+=======
+  
+>>>>>>> master
     
 }

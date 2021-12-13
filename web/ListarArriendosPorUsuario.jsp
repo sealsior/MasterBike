@@ -1,10 +1,21 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 <%-- 
     Document   : ListarArriendosPorUsuario
     Created on : 02-11-2021, 14:15:27
     Author     : baggr
 --%>
 
+<<<<<<< HEAD
+=======
+<%-- 
+    Document   : ListarSolicitudesArriendo
+    Created on : 25-10-2021, 21:56:49
+    Author     : baggr
+--%>
+>>>>>>> master
 
 <%@page import="java.util.List"%>
 <%@page import="Model.Usuario"%>
@@ -15,7 +26,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <link rel="shortcut icon" href="https://masterbike.ro/img/favicon.ico?1636634012">
+=======
+>>>>>>> master
          <meta charset="utf-8" />
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         
@@ -45,6 +59,7 @@
         <title>Mis arriendos</title>
     </head>
     <body>
+<<<<<<< HEAD
        
               <!-- Start Header Area -->
                 <header class="header_area sticky-header">
@@ -64,6 +79,27 @@
                                     <ul class="nav navbar-nav menu_nav ml-auto">
                                         <c:choose>
                                             <c:when test="${perfil == 1}">
+=======
+        
+              <!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark main_box" >
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="inicio.jsp"><img src="https://i.ibb.co/S0J0VKs/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+                                                    <c:choose>
+                                                        <c:when test="${perfil == 1}">
+>>>>>>> master
                                                             <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -91,11 +127,18 @@
 								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Mi Cuenta</a>
 								<ul class="dropdown-menu">
+<<<<<<< HEAD
                                                                         <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getNombre()}"/></a></li>
                                                                         <li class="nav-item bg-dark"><a class="nav-link" href="ListarMantencionesPorUsuario.jsp" >Mis mantenciones</a></li>
                                                                         <li class="nav-item bg-dark"><a class="nav-link" href="ListarArriendosPorUsuario.jsp" >Mis arriendos</a></li>
                                                                         <li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=MisCompras">Mis compras</a></li>
                                                                         <li class="nav-item bg-dark"><a class="nav-link" href="MisDatos.jsp" >Mis datos</a></li>
+=======
+                                                                        <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getPnombre()}"/></a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListarMantencionesPorUsuario.jsp" >Mis mantenciones</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListarArriendosPorUsuario.jsp" >Mis arriendos</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=MisCompras">Mis Compras</a></li>
+>>>>>>> master
                                                                         <li class="nav-item bg-dark"><a class="nav-link" href="ControladorLogout" style="color:red">Cerrar Sesión</a></li>
                                                                 </ul>
                                                             
@@ -103,6 +146,7 @@
 							</li>
                                                             
                                                         </c:when>
+<<<<<<< HEAD
 
                                                 <c:when test="${perfil == 2}">
                                                     <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
@@ -227,6 +271,184 @@
         <div class="container">     
         <h1>Mis arriendos 📋</h1>
         <form action="<c:url value="/ControladorContrato" />" method="post" target="_blank">
+=======
+                                                        
+                                                        <c:when test="${perfil == 2}">
+                                                            <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Servicios</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="ListaStock.jsp">Ver stock</a></li>
+                                                                        
+								</ul>
+							</li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Mi Cuenta</a>
+								<ul class="dropdown-menu">
+                                                                        <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getPnombre()}"/></a></li>
+                                                                        
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ControladorLogout" style="color:red">Cerrar Sesión</a></li>
+                                                                </ul>
+                                                            
+                                                            
+							</li>
+                                                            
+                                                        </c:when>
+                                                        
+                                                        <c:when test="${perfil == 3}">
+                                                            <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Servicios</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="ListarSolicitudesMantenciones.jsp">Listado solicitudes taller</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListaStock.jsp">Ver stock</a></li>
+                                                                        
+								</ul>
+							</li>
+                                                        
+                                                       
+							
+							<li class="nav-item submenu dropdown">
+								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Mi Cuenta</a>
+								<ul class="dropdown-menu">
+                                                                        <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getPnombre()}"/></a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ControladorListarUsuarios">Listado de clientes</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ControladorLogout" style="color:red">Cerrar Sesión</a></li>
+                                                                </ul>
+                                                            
+                                                            
+							</li>
+                                                            
+                                                            
+                                                        </c:when>
+                                                        
+                                                        <c:when test="${perfil == 4}">
+                                                            <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Productos</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=bicicletas">Bicicletas</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Accesorio.jsp">Accesorios</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Repuesto.jsp">Repuestos</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=home">Todo</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="verDocumento.jsp">Documentación</a></li>
+									</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Servicios</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="ControladorMantencion">Solicitud Taller</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListarSolicitudesMantenciones.jsp">Listado solicitudes taller</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="SolicitudArriendo.jsp">Arriendos</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListarSolicitudesArriendo.jsp">Listado solicitudes arriendo</a></li>
+                                                                        
+								</ul>
+							</li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Mi Cuenta</a>
+								<ul class="dropdown-menu">
+                                                                        <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getPnombre()}"/></a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ListarUsuarios.jsp">Listado de usuarios</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ReporteVenta.jsp" >Reportes</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ControladorLogout" style="color:red">Cerrar Sesión</a></li>
+                                                                </ul>
+                                                            
+                                                            
+							</li>
+                                                            
+                                                            
+                                                        </c:when>
+                                                        
+                                                        <c:when test="${perfil == 5}">
+                                                            <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Productos</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=bicicletas">Bicicletas</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Accesorio.jsp">Accesorios</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Repuesto.jsp">Repuestos</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=home">Todo</a></li>
+									</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Servicios</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="ListaProductos.jsp">Lista productos</a></li>
+                                                                        
+								</ul>
+							</li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Mi Cuenta</a>
+								<ul class="dropdown-menu">
+                                                                        <li class="nav-item bg-dark"><a class="nav-link">Hola <c:out value="${usuarioActivo.getPnombre()}"/></a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="ControladorLogout" style="color:red">Cerrar Sesión</a></li>
+                                                                </ul>
+                                                                                                                        
+							</li>
+                                                                                                                        
+                                                        </c:when>
+                                                        <c:otherwise>   
+                                                        <li class="nav-item active"><a class="nav-link" href="inicio.jsp">Inicio</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Productos</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=bicicletas">Bicicletas</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Accesorio.jsp">Accesorios</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="Repuesto.jsp">Repuestos</a></li>
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="Controlador?accion=home">Todo</a></li>
+									</ul>
+							</li>
+							
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="Controlador?accion=Carrito"><i class="fas fa-cart-plus"><label style="color: darkorange">${contador}</label></i>Carrito</a>
+                                                        </li>
+							
+							<li class="nav-item submenu dropdown">
+								<a href="login.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Mi Cuenta</a>
+								<ul class="dropdown-menu">
+                                                                        <li class="nav-item bg-dark"><a class="nav-link" href="Login.jsp">Iniciar Sesión</a></li>
+									<li class="nav-item bg-dark"><a class="nav-link" href="ControladorUsuario">Registrate</a></li>
+									
+                                                                        
+                                                                </ul>
+                                                            
+                                                            
+							</li>
+                                                        
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                        
+						</ul>
+						
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+	</header>
+	<!-- End Header Area -->
+        
+        
+        <div class="container">     
+        <h1>Mis arriendos</h1>
+>>>>>>> master
         <table class="table table-striped" id="table_id">
             <thead>
             <tr>
@@ -235,10 +457,17 @@
                 <th>Fecha inicio</th>
                 <th>Fecha fin</th>
                 <th>Forma de pago</th>
+<<<<<<< HEAD
                 <th>Depósito de garantía</th>
                 <th>Estado</th>
                 <th>Contrato</th>
                                 
+=======
+                <th>Deposito de garantia</th>
+                <th>Comentario</th>
+                <th>Usuario</th>
+                
+>>>>>>> master
             </tr>
             </thead>
             <tbody>
@@ -256,8 +485,14 @@
                                 out.println("<td>" + d.getFecfinArriendo() + "</td>");
                                 out.println("<td>" + d.getFormapagoArri() + "</td>");
                                 out.println("<td>" + d.getDepositogarantia() + "</td>");
+<<<<<<< HEAD
                                 out.println("<td>" + d.getEstado()+ "</td>");
                                 out.println("<td><button type='submit' class='btn btn-primary' name='accion' value='aprobar-" + d.getIdSolArriendo() + "' style=';max-width:100%;'>Ver</button></td>");
+=======
+                                out.println("<td>" + d.getComentario() + "</td>");
+                                out.println("<td>" + d.getUsuario().getEmailUsuario() + "</td>");
+                                      
+>>>>>>> master
                                 out.println("</tr>");
 
                             }
@@ -266,13 +501,17 @@
           
             </tbody>
         </table>
+<<<<<<< HEAD
         </form>
+=======
+>>>>>>> master
         </div>
         
         
         <br>
         <br>
         
+<<<<<<< HEAD
        <!-- Footer -->
                 <footer class="bg-dark text-center text-white">
                     <!-- Grid container -->
@@ -452,6 +691,192 @@
                 <!-- Copyright -->
             </footer>
                 <!-- Footer -->  
+=======
+        <!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Suscribete a nuestras noticias</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21">Tu email</label>
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Suscribir
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        La fabrica de bicicletas San Diego nacio en el año 1990 en la ciudad de Santiago como respuesta a 
+        la cresciente demanda de bicicletas de los habitantes de la capital, hoy, 31 años despúes bajo la
+        nueva marca "Masterbik" busca nuevamente ser protagonista del ciclismo nacional ofreciendo nuevos 
+        servicios de acuerdo a las necesidades de los riders chilenos.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Categorias</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Nuestros productos</a>
+            </li>
+            <li>
+              <a href="ControladorMantencion" class="text-white">Taller de bicicletas</a>
+            </li>
+            <li>
+              <a href="SolicitudArriendo.jsp" class="text-white">Arriendo de bicicletas</a>
+            </li>
+            
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Nuestros socios</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://bike.shimano.com/" class="text-white">Shimano</a>
+            </li>
+            <li>
+              <a href="https://www.ridefox.com/" class="text-white">Fox</a>
+            </li>
+            <li>
+              <a href="https://www.sram.com/" class="text-white">Sram</a>
+            </li>
+           
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Atención al cliente</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Contáctanos</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Terminos y condiciones</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Seguimiento de envios</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Aviso legal</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="">Sealsior</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->  
+>>>>>>> master
         
    <!-- JavaScript -->
    
@@ -490,8 +915,11 @@
             "sortDescending": ": Activar para ordenar la columna de manera descendente"
         },
         //only works for built-in buttons, not for custom buttons
+<<<<<<< HEAD
         
                 
+=======
+>>>>>>> master
         "buttons": {
             "create": "Nuevo",
             "edit": "Cambiar",
@@ -523,5 +951,9 @@
             
         </script>
         
+<<<<<<< HEAD
+=======
+     
+>>>>>>> master
     </body>
 </html>

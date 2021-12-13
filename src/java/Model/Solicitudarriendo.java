@@ -92,8 +92,13 @@ public class Solicitudarriendo  implements java.io.Serializable {
     public void setDepositogarantia(Integer depositogarantia) {
         this.depositogarantia = depositogarantia;
     }
+<<<<<<< HEAD
     public String getEstado() {
         return this.estado;
+=======
+    public String getComentario() {
+        return this.comentario;
+>>>>>>> master
     }
     
     public void setEstado(String estado) {

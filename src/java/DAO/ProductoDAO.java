@@ -59,6 +59,7 @@ public class ProductoDAO {
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
         String hql = "FROM Producto order by ID_PRODUCTO desc";
+<<<<<<< HEAD
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -73,6 +74,8 @@ public class ProductoDAO {
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
         String hql = "FROM Producto where STOCK >0 order by ID_PRODUCTO desc";
+=======
+>>>>>>> master
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -186,14 +189,21 @@ public class ProductoDAO {
     }
     //Copia de aqui para abajo
     
+<<<<<<< HEAD
     public Producto listarId(long id){
         String sql="select * from PRODUCTO where ID_PRODUCTO="+id;
         Producto p=new Producto();
+=======
+    public Producto1 listarId(int id){
+        String sql="select * from PRODUCTO where ID_PRODUCTO="+id;
+        Producto1 p=new Producto1();
+>>>>>>> master
         try {
             con=cn.conectar();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while (rs.next()) {                
+<<<<<<< HEAD
                 p.setIdProducto(rs.getLong(1));
                 p.setNombreproducto(rs.getString(2));
                 p.setTipoproducto(rs.getString(3));
@@ -208,11 +218,25 @@ public class ProductoDAO {
             ps.close();
             rs.close();
             cn.desconectar();
+=======
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setTipo(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPropio(rs.getString(5));
+                p.setValor(rs.getInt(6));
+                p.setMarca(rs.getString(7));
+                p.setModelo(rs.getString(8));
+                p.setStock(rs.getInt(9));
+                p.setFoto(rs.getBinaryStream(10));
+            }
+>>>>>>> master
         } catch (Exception e) {
         }
         return p;
     
     }
+<<<<<<< HEAD
     
     
     public void listarImg(int id, HttpServletResponse response){
@@ -247,6 +271,67 @@ public class ProductoDAO {
     
     
     public List<Producto> findID(int id) {//lista por id con hibernate
+=======
+    
+    public List listar()
+    {
+        List<Producto1>productos=new ArrayList();
+        String sql="select * from PRODUCTO";
+        try {
+            con=cn.conectar();//mi clase conectar() es la q tengo q usar recuerda q esta bien!!!!!!
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while (rs.next()) {                
+                Producto1 p=new Producto1();
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setTipo(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPropio(rs.getString(5));
+                p.setValor(rs.getInt(6));
+                p.setMarca(rs.getString(7));
+                p.setModelo(rs.getString(8));
+                p.setStock(rs.getInt(9));
+                p.setFoto(rs.getBinaryStream(10));
+                
+                productos.add(p);
+                
+            }
+        } catch (Exception e) {
+        }
+        return productos;
+    }
+    
+    public void listarImg(int id, HttpServletResponse response){
+        String sql="select * from PRODUCTO where ID_PRODUCTO="+id;
+        InputStream inputStream=null;
+        OutputStream outputStream=null;
+        BufferedInputStream bufferedInputStream=null;
+        BufferedOutputStream bufferedOutputStream=null;
+        
+        try {
+            outputStream=response.getOutputStream();
+            
+            con=cn.conectar();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            if (rs.next()) {
+                inputStream=rs.getBinaryStream("Foto");
+            }
+            bufferedInputStream=new BufferedInputStream(inputStream);
+            bufferedOutputStream=new BufferedOutputStream(outputStream);
+            int i=0;
+            while ((i=bufferedInputStream.read())!=-1) {                
+                bufferedOutputStream.write(i);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    public List<Producto> findID(long id) {//lista por id con hibernate
+>>>>>>> master
         Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
                 applySettings(configuration.getProperties());
@@ -258,8 +343,24 @@ public class ProductoDAO {
         session.close();
         return producto;
     }
+<<<<<<< HEAD
 
     
+=======
+    public List<Producto> findIDProducto(String id) {//lista por id con hibernate de detalles venta
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        ///  SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        Query query = session.createQuery(" from Producto where ID_PRODUCTO= " + id);
+        List<Producto> detalle = query.list();
+        session.close();
+        return detalle;
+
+    }
+>>>>>>> master
     public Producto listaridd(String id){//en este estoy trabajando ahora
            String sql = "select * from PRODUCTO where ID_PRODUCTO= " + id;
            Producto p = new Producto();
@@ -269,6 +370,7 @@ public class ProductoDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 p.setIdProducto(rs.getLong(1));
+<<<<<<< HEAD
                 p.setNombreproducto(rs.getString(2));
                 p.setTipoproducto(rs.getString(3));
                 p.setDescripcion(rs.getString(4));
@@ -288,12 +390,110 @@ public class ProductoDAO {
            return p;
     }
 
+=======
+            }
+        } catch (Exception e) {
+        }
+            
+           return p;
+    }
+    //FILTRAR POR BICICLETA 
+    public List listarBicicleta() {
+        List<Producto1> productos = new ArrayList();
+        String sql = "select * from PRODUCTO TIPOPRODUCTO='Bicicleta'";
+        try {
+            con = cn.conectar();//
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto1 p = new Producto1();
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setTipo(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPropio(rs.getString(5));
+                p.setValor(rs.getInt(6));
+                p.setMarca(rs.getString(7));
+                p.setModelo(rs.getString(8));
+                p.setStock(rs.getInt(9));
+                p.setFoto(rs.getBinaryStream(10));
+
+                productos.add(p);
+
+            }
+        } catch (Exception e) {
+        }
+        return productos;
+    }
+    //LISTAR POR ACCESORIO
+    public List listarAccesorio()
+    {
+        List<Producto1>productos=new ArrayList();
+        String sql="select * from PRODUCTO TIPOPRODUCTO='Accesorio'";
+        try {
+            con=cn.conectar();//
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while (rs.next()) {                
+                Producto1 p=new Producto1();
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setTipo(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPropio(rs.getString(5));
+                p.setValor(rs.getInt(6));
+                p.setMarca(rs.getString(7));
+                p.setModelo(rs.getString(8));
+                p.setStock(rs.getInt(9));
+                p.setFoto(rs.getBinaryStream(10));
+                
+                productos.add(p);
+                
+            }
+        } catch (Exception e) {
+        }
+        return productos;
+    }
+    //LISTAR POR REPUESTO
+    public List listarRespuesto()
+    {
+        List<Producto1>productos=new ArrayList();
+        String sql="select * from PRODUCTO TIPOPRODUCTO='Repuesto'";
+        try {
+            con=cn.conectar();//
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while (rs.next()) {                
+                Producto1 p=new Producto1();
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setTipo(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPropio(rs.getString(5));
+                p.setValor(rs.getInt(6));
+                p.setMarca(rs.getString(7));
+                p.setModelo(rs.getString(8));
+                p.setStock(rs.getInt(9));
+                p.setFoto(rs.getBinaryStream(10));
+                
+                productos.add(p);
+                
+            }
+        } catch (Exception e) {
+        }
+        return productos;
+    }
+>>>>>>> master
     //PRUEBA EXITOSA
     public List<Producto> listarProductosTipo() {
         List<Producto> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
+<<<<<<< HEAD
         String hql = "FROM Producto where TIPOPRODUCTO='Bicicleta' and STOCK >0";
+=======
+        String hql = "FROM Producto where TIPOPRODUCTO='Bicicleta' ";
+>>>>>>> master
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -308,7 +508,11 @@ public class ProductoDAO {
         List<Producto> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
+<<<<<<< HEAD
         String hql = "FROM Producto where TIPOPRODUCTO='Accesorio' and STOCK >0 ";
+=======
+        String hql = "FROM Producto where TIPOPRODUCTO='Accesorio' ";
+>>>>>>> master
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -323,7 +527,11 @@ public class ProductoDAO {
         List<Producto> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
+<<<<<<< HEAD
         String hql = "FROM Producto where TIPOPRODUCTO='Repuesto' and STOCK >0";
+=======
+        String hql = "FROM Producto where TIPOPRODUCTO='Repuesto' ";
+>>>>>>> master
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();

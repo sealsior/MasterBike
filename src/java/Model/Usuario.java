@@ -44,7 +44,11 @@ public class Usuario  implements java.io.Serializable {
         this.direccionUsuario = direccionUsuario;
         this.numtelefono = numtelefono;
     }
+<<<<<<< HEAD
     public Usuario(long idUsuario, Rol rol, String emailUsuario, String password, String nombre, String apellidos, String convenio, String rutUsuario, Date fechanac, String direccionUsuario, int numtelefono, Set mantencions, Set ventas, Set solicitudarriendos, Set reportes) {
+=======
+    public Usuario(long idUsuario, Rol rol, String emailUsuario, String password, String pnombre, String appaterno, String apmaterno, String rutUsuario, Date fechanac, String direccionUsuario, int numtelefono, Set mantencions, Set ventas, Set solicitudarriendos, Set reportes) {
+>>>>>>> master
        this.idUsuario = idUsuario;
        this.rol = rol;
        this.emailUsuario = emailUsuario;
@@ -90,22 +94,37 @@ public class Usuario  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+<<<<<<< HEAD
     public String getNombre() {
         return this.nombre;
+=======
+    public String getPnombre() {
+        return this.pnombre;
+>>>>>>> master
     }
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+<<<<<<< HEAD
     public String getApellidos() {
         return this.apellidos;
+=======
+    public String getAppaterno() {
+        return this.appaterno;
+>>>>>>> master
     }
     
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+<<<<<<< HEAD
     public String getConvenio() {
         return this.convenio;
+=======
+    public String getApmaterno() {
+        return this.apmaterno;
+>>>>>>> master
     }
     
     public void setConvenio(String convenio) {

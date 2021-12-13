@@ -5,14 +5,23 @@
  */
 package modelo;
 
+<<<<<<< HEAD
 import Model.Usuario;
 import java.util.List;
+=======
+import java.util.List;
+import Model.Usuario;
+>>>>>>> master
 
 /**
  *
  * @author Marco
  */
+<<<<<<< HEAD
 public class Compras {//recordar q cambien el tipo de dato de monto de int a long 
+=======
+public class Compras {
+>>>>>>> master
     
     private int id;
     private Usuario usuario;

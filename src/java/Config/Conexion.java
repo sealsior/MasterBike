@@ -17,9 +17,15 @@ import javax.swing.JOptionPane;
 public class Conexion {
     
      private final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+<<<<<<< HEAD
     private final String URL = "jdbc:oracle:thin:@//localhost:1522/XEPDB1";
     private final String USER = "BDCLETA";
     private final String PASWORD = "oracle";
+=======
+    private final String URL = "jdbc:oracle:thin:@localhost:1521:XE"; 
+    private final String USER = "BDCLETA";
+    private final String PASWORD = "masterbike";
+>>>>>>> master
 
     public Connection cadena;
 

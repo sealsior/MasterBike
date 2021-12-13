@@ -185,6 +185,7 @@ public class SolicitudarriendoDAO {
         return arriendos;
     }
     
+<<<<<<< HEAD
     public List<Solicitudarriendo> findPorId(String id) {
         Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
@@ -212,4 +213,6 @@ public class SolicitudarriendoDAO {
         return arriendos;
     }
     
+=======
+>>>>>>> master
 }

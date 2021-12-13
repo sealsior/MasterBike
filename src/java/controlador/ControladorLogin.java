@@ -9,8 +9,11 @@ import DAO.UsuarioDAO;
 import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+<<<<<<< HEAD
 import java.math.BigInteger;
 import java.security.MessageDigest;
+=======
+>>>>>>> master
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +59,11 @@ public class ControladorLogin extends HttpServlet {
             usu.setEmailUsuario(mail);
         }
 
+<<<<<<< HEAD
         String pass = request.getParameter("txtPassword");
+=======
+        String pass = request.getParameter("password");
+>>>>>>> master
         if (pass.isEmpty()) {
             mapMensajes.put("Password", "Debe Ingresar contraseña!!");
         } else {
@@ -71,13 +78,22 @@ public class ControladorLogin extends HttpServlet {
             for (Usuario user : usuario) {
 
                 BDuser.setEmailUsuario(user.getEmailUsuario());
+<<<<<<< HEAD
                 BDuser.setNombre(user.getNombre());
+=======
+                BDuser.setPnombre(user.getPnombre());
+>>>>>>> master
                 BDuser.setPassword(user.getPassword());
                 BDuser.setRol(user.getRol());
                 BDuser.setRutUsuario(user.getRutUsuario());
                 BDuser.setIdUsuario(user.getIdUsuario());
+<<<<<<< HEAD
                 BDuser.setApellidos(user.getApellidos());
                 BDuser.setConvenio(user.getConvenio());
+=======
+                BDuser.setAppaterno(user.getApmaterno());
+                BDuser.setApmaterno(user.getApmaterno());
+>>>>>>> master
                 BDuser.setFechanac(user.getFechanac());
                 BDuser.setDireccionUsuario(user.getDireccionUsuario());
                 BDuser.setNumtelefono(user.getNumtelefono());
@@ -89,7 +105,11 @@ public class ControladorLogin extends HttpServlet {
           
                
             try {
+<<<<<<< HEAD
                 if (BDuser.getEmailUsuario().equalsIgnoreCase(mail) && BDuser.getPassword().equals(getMD5(pass))) {
+=======
+                if (BDuser.getEmailUsuario().equalsIgnoreCase(mail) && BDuser.getPassword().equals(pass)) {
+>>>>>>> master
                     //Definir Perfil
                String perfilStr =  BDuser.getRol().getNombre();
                int perf=0;
@@ -103,7 +123,11 @@ public class ControladorLogin extends HttpServlet {
                       break;
                   case "Supervisor":perf=4;
                       break;
+<<<<<<< HEAD
                   case "Bodeguero":perf=5;
+=======
+                  case "Proveedor":perf=5;
+>>>>>>> master
                       break;
                                      
                   default: perf=0;
@@ -134,6 +158,7 @@ public class ControladorLogin extends HttpServlet {
     }
 
    
+<<<<<<< HEAD
 public String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -148,5 +173,8 @@ public String getMD5(String input) {
             throw new RuntimeException(e);
         }
     }
+=======
+
+>>>>>>> master
 
 }
