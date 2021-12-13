@@ -12,9 +12,41 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>Controlador</servlet-name>
+        <servlet-class>controlador.Controlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorIMG</servlet-name>
+        <servlet-class>controlador.ControladorIMG</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorEditarProducto</servlet-name>
+        <servlet-class>controlador.ControladorEditarProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorDocumentos</servlet-name>
+        <servlet-class>controlador.ControladorDocumentos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador</servlet-name>
+        <url-pattern>/Controlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorIMG</servlet-name>
+        <url-pattern>/ControladorIMG</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorEditarProducto</servlet-name>
+        <url-pattern>/ControladorEditarProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorDocumentos</servlet-name>
+        <url-pattern>/ControladorDocumentos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

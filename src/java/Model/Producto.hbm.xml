@@ -32,8 +32,8 @@
         <property name="stock" type="long">
             <column name="STOCK" precision="10" scale="0" not-null="true" />
         </property>
-        <property name="imagen" type="blob">
-            <column name="IMAGEN" />
+        <property name="imagen" type="string">
+            <column name="IMAGEN" length="200"/>
         </property>
         <set name="detalleventas" table="DETALLEVENTA" inverse="true" lazy="true" fetch="select">
             <key>

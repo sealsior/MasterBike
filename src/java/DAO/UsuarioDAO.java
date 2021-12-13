@@ -7,23 +7,23 @@ package DAO;
 
 import Model.Usuario;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.List;
 import Hibernate.HibernateUtil;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author baggr
  */
 public class UsuarioDAO {
-    
-    
-    
+
     public boolean crear(Usuario usuario) {
         boolean creado = false;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
@@ -40,8 +40,8 @@ public class UsuarioDAO {
         }
         return creado;
     }
-    
-      public List<Usuario> listarUsuarios() {
+
+    public List<Usuario> listarUsuarios() {
         List<Usuario> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
@@ -55,7 +55,7 @@ public class UsuarioDAO {
         }
         return lista;
     }
-    
+
     public void agregar(Usuario usuario) {
         Session sesion = null;
         try {
@@ -72,7 +72,7 @@ public class UsuarioDAO {
             }
         }
     }
-    
+
     public void modificar(Usuario usuario) {
         Session sesion = null;
         try {
@@ -89,7 +89,7 @@ public class UsuarioDAO {
             }
         }
     }
-    
+
     public void eliminar(Usuario usuario) {
         Session sesion = null;
         try {
@@ -106,21 +106,20 @@ public class UsuarioDAO {
             }
         }
     }
-    
-    //Stored Procedures CRUD  
+
     public void ingresarSP(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin USUARIO_TAPI.ins(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Apaterno, :Idrol, :Rut, :Email, :Fechanac, :Apaterno, :Numero); end;");
-        query.setParameter("Nombre", usuario.getPnombre());
+        Query query = session.createSQLQuery("begin USUARIO_TAPI.ins(:Convenio,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion, :Idrol, :Email,:Apellidos, :Rut, :Fechanac, :Nombre, :Numero); end;");
+        query.setParameter("Convenio", usuario.getConvenio());
         query.setParameter("Password", usuario.getPassword());
         query.setParameter("Direccion", usuario.getDireccionUsuario());
-        query.setParameter("Apaterno", usuario.getAppaterno());
         query.setParameter("Idrol", usuario.getRol());
-        query.setParameter("Rut", usuario.getRutUsuario());
         query.setParameter("Email", usuario.getEmailUsuario());
+        query.setParameter("Apellidos", usuario.getApellidos());
+        query.setParameter("Rut", usuario.getRutUsuario());
         query.setParameter("Fechanac", usuario.getFechanac());
-        query.setParameter("Apaterno", usuario.getAppaterno());
+        query.setParameter("Nombre", usuario.getNombre());
         query.setParameter("Numero", usuario.getNumtelefono());
         query.executeUpdate();
         tx.commit();
@@ -132,16 +131,17 @@ public class UsuarioDAO {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin USUARIO_TAPI.(:Nombre,SEQ_USUARIOS.NEXTVAL,:Password,:Direccion,:Apaterno, :Idrol, :Rut, :Email, :Fechanac, :Apaterno, :Numero); end;");
-        query.setParameter("Nombre", usuario.getPnombre());
+        Query query = session.createSQLQuery("begin USUARIO_TAPI.upd(:Convenio,:Idusuario,:Password,:Direccion, :Idrol, :Email,:Apellidos, :Rut, :Fechanac, :Nombre, :Numero); end;");
+        query.setParameter("Convenio", usuario.getConvenio());
+        query.setParameter("Idusuario", usuario.getIdUsuario());
         query.setParameter("Password", usuario.getPassword());
         query.setParameter("Direccion", usuario.getDireccionUsuario());
-        query.setParameter("Apaterno", usuario.getAppaterno());
         query.setParameter("Idrol", usuario.getRol());
-        query.setParameter("Rut", usuario.getRutUsuario());
         query.setParameter("Email", usuario.getEmailUsuario());
+        query.setParameter("Apellidos", usuario.getApellidos());
+        query.setParameter("Rut", usuario.getRutUsuario());
         query.setParameter("Fechanac", usuario.getFechanac());
-        query.setParameter("Apaterno", usuario.getAppaterno());
+        query.setParameter("Nombre", usuario.getNombre());
         query.setParameter("Numero", usuario.getNumtelefono());
         query.executeUpdate();
         tx.commit();
@@ -160,5 +160,56 @@ public class UsuarioDAO {
 
     }
 
-    
+    public List<Usuario> find(String mail) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        ///  SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Usuario where EMAIL_USUARIO='" + mail + "'");
+        List<Usuario> usuario = query.list();
+        session.close();
+        return usuario;
+    }
+
+    public List<Usuario> findPorId(String id) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        ///  SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Usuario where ID_USUARIO='" + id + "'");
+        List<Usuario> usuario = query.list();
+        session.close();
+        return usuario;
+    }
+
+    public List<Usuario> buscarUsuarioModificar(Usuario usuario) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Usuario where ID_USUARIO =:USUARIO");
+        query.setParameter("USUARIO", usuario);
+        List<Usuario> usuarios = query.list();
+        return usuarios;
+    }
+
+    public List<Usuario> findPorConvenio(String convenio) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        ///  SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Usuario where CONVENIO='" + convenio + "' and ID_ROL=" + 1);
+        List<Usuario> usuario = query.list();
+        session.close();
+        return usuario;
+    }
+
 }

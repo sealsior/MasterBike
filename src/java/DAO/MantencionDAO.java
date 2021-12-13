@@ -7,10 +7,14 @@ package DAO;
 
 import Hibernate.HibernateUtil;
 import Model.Mantencion;
+import Model.Usuario;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -40,6 +44,20 @@ public class MantencionDAO {
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
         String hql = "FROM Mantencion";
+        try {
+            lista = sesion.createQuery(hql).list();
+            t.commit();
+            sesion.close();
+        } catch (Exception e) {
+            t.rollback();
+        }
+        return lista;
+    }
+      public List<Mantencion> listarMantencionesWhere() {
+        List<Mantencion> lista = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = sesion.beginTransaction();
+        String hql = "FROM Mantencion Where ESTADOSOLICITUD != 'Pendiente'";
         try {
             lista = sesion.createQuery(hql).list();
             t.commit();
@@ -101,18 +119,21 @@ public class MantencionDAO {
         }
     }
     
-    //Stored Procedures CRUD  
+  
     public void ingresarSP(Mantencion mant) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin MANTENCION_TAPI.ins(:Estado,:Idservicio,:Idusuario,:Fecingreso,:Garantia, :Observacion, SEQ_MANTENCION.NEXTVAL, :Fecsalida); end;");
-        query.setParameter("Estado", mant.getEstado());
+        Query query = session.createSQLQuery("begin MANTENCION_TAPI.ins(:Comentario,:Idservicio,:ValorTotal,:Idusuario,:FecSolicitada,:EstadoSolicitud,:Fecingreso,:Garantia, SEQ_MANTENCION.NEXTVAL, :Fecsalida, :RetiroDom); end;");
+        query.setParameter("Comentario", mant.getComentarios());
         query.setParameter("Idservicio", mant.getServicio());
+        query.setParameter("ValorTotal", mant.getValortotal());
         query.setParameter("Idusuario", mant.getUsuario());
+        query.setParameter("FecSolicitada", mant.getFecSolicitada());
+        query.setParameter("EstadoSolicitud", mant.getEstadosolicitud());
         query.setParameter("Fecingreso", mant.getFecingreso());
         query.setParameter("Garantia", mant.getGarantia());
-        query.setParameter("Observacion", mant.getObservacion());
         query.setParameter("Fecsalida", mant.getFecsalida());
+        query.setParameter("RetiroDom", mant.getRetirodomicilio());
         query.executeUpdate();
         tx.commit();
         session.close();
@@ -123,14 +144,18 @@ public class MantencionDAO {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createSQLQuery("begin MANTENCION_TAPI.upd(:Estado,:Idservicio,:Idusuario,:Fecingreso,:Garantia, :Observacion, SEQ_MANTENCION.NEXTVAL, :Fecsalida); end;");
-        query.setParameter("Estado", mant.getEstado());
+        Query query = session.createSQLQuery("begin MANTENCION_TAPI.upd(:Comentario,:Idservicio,:ValorTotal,:Idusuario,:FecSolicitada,:EstadoSolicitud,:Fecingreso,:Garantia, :IdMantencion, :Fecsalida, :RetiroDom); end;");
+        query.setParameter("Comentario", mant.getComentarios());
         query.setParameter("Idservicio", mant.getServicio());
+        query.setParameter("ValorTotal", mant.getValortotal());
         query.setParameter("Idusuario", mant.getUsuario());
+        query.setParameter("FecSolicitada", mant.getFecSolicitada());
+        query.setParameter("EstadoSolicitud", mant.getEstadosolicitud());
         query.setParameter("Fecingreso", mant.getFecingreso());
         query.setParameter("Garantia", mant.getGarantia());
-        query.setParameter("Observacion", mant.getObservacion());
         query.setParameter("Fecsalida", mant.getFecsalida());
+        query.setParameter("RetiroDom", mant.getRetirodomicilio());
+        query.setParameter("IdMantencion", mant.getIdMantencion());
         query.executeUpdate();
         tx.commit();
         session.close();
@@ -146,6 +171,49 @@ public class MantencionDAO {
         tx.commit();
         session.close();
 
+    }
+    
+   
+    
+    public List<Mantencion> findID(long id) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+       
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Mantencion where ID_MANTENCION="+id );
+        List<Mantencion> mantencion = query.list();
+        session.close();
+        return mantencion;
+    }
+    
+     //Se rescata mantencion por su id
+    public List<Mantencion> find(String idMantencion) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Mantencion where ID_MANTENCION ="+idMantencion);
+      
+        List<Mantencion> mantencion = query.list();
+        return mantencion;
+    }
+    
+    //Solicitudes por usuario
+    public List<Mantencion> buscarMantencionesPorUsuario(Usuario usuario) {
+        Configuration configuration = new Configuration().configure();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                applySettings(configuration.getProperties());
+        SessionFactory sf = configuration.buildSessionFactory(builder.build());
+        
+        Session session = sf.openSession();
+        Query query = session.createQuery("from Mantencion where ID_USUARIO =:USUARIO");
+        query.setParameter("USUARIO", usuario);
+        List<Mantencion> mantenciones = query.list();
+        return mantenciones;
     }
     
 }

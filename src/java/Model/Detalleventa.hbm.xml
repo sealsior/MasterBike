@@ -9,10 +9,10 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="producto" class="Model.Producto" fetch="select">
-            <column name="ID_PRODUCTO" precision="3" scale="0" not-null="true" />
+            <column name="ID_PRODUCTO" precision="10" scale="0" not-null="true" />
         </many-to-one>
         <many-to-one name="venta" class="Model.Venta" fetch="select">
-            <column name="ID_VENTA" precision="3" scale="0" not-null="true" />
+            <column name="ID_VENTA" precision="10" scale="0" not-null="true" />
         </many-to-one>
         <property name="cantidad" type="long">
             <column name="CANTIDAD" precision="10" scale="0" not-null="true" />

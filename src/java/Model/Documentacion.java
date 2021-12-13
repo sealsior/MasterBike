@@ -25,7 +25,7 @@ public class Documentacion  implements java.io.Serializable {
      private Producto producto;
      private String tipodocumento;
      private String nomdocumento;
-     private Blob documento;
+     private String documento;
 
     public Documentacion() {
     }
@@ -35,7 +35,7 @@ public class Documentacion  implements java.io.Serializable {
         this.idDocumentacion = idDocumentacion;
         this.producto = producto;
     }
-    public Documentacion(long idDocumentacion, Producto producto, String tipodocumento, String nomdocumento, Blob documento) {
+    public Documentacion(long idDocumentacion, Producto producto, String tipodocumento, String nomdocumento, String documento) {
        this.idDocumentacion = idDocumentacion;
        this.producto = producto;
        this.tipodocumento = tipodocumento;
@@ -87,11 +87,11 @@ public class Documentacion  implements java.io.Serializable {
 
     
     @Column(name="DOCUMENTO")
-    public Blob getDocumento() {
+    public String getDocumento() {
         return this.documento;
     }
     
-    public void setDocumento(Blob documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 

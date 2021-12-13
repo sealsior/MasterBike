@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-10-2021 20:24:27 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Model.Seguimientoenvios" table="SEGUIMIENTOENVIOS" schema="BDCLETA" optimistic-lock="version">
         <id name="idSeguiEnvios" type="long">
@@ -11,26 +11,14 @@
         <many-to-one name="venta" class="Model.Venta" fetch="select">
             <column name="ID_VENTA" precision="3" scale="0" not-null="true" unique="true" />
         </many-to-one>
-        <property name="tipoentrega" type="string">
-            <column name="TIPOENTREGA" length="15" not-null="true" />
-        </property>
-        <property name="tipopago" type="string">
-            <column name="TIPOPAGO" length="15" not-null="true" />
-        </property>
-        <property name="direccentrega" type="string">
-            <column name="DIRECCENTREGA" length="25" not-null="true" />
-        </property>
         <property name="estadoentrega" type="string">
             <column name="ESTADOENTREGA" length="10" not-null="true" />
         </property>
-        <property name="emptransporte" type="string">
-            <column name="EMPTRANSPORTE" length="20" not-null="true" />
-        </property>
         <property name="fecdespacho" type="date">
-            <column name="FECDESPACHO" length="7" not-null="true" />
+            <column name="FECDESPACHO" length="7"  />
         </property>
         <property name="fecentrega" type="date">
-            <column name="FECENTREGA" length="7" not-null="true" />
+            <column name="FECENTREGA" length="7"  />
         </property>
     </class>
 </hibernate-mapping>

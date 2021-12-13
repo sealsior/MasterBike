@@ -31,7 +31,7 @@ public class Producto  implements java.io.Serializable {
      private String marca;
      private String modelo;
      private long stock;
-     private Blob imagen;
+     private String imagen;
      private Set<Detalleventa> detalleventas = new HashSet<Detalleventa>(0);
      private Set<Documentacion> documentacions = new HashSet<Documentacion>(0);
 
@@ -47,7 +47,7 @@ public class Producto  implements java.io.Serializable {
         this.valproducto = valproducto;
         this.stock = stock;
     }
-    public Producto(long idProducto, String nombreproducto, String tipoproducto, String descripcion, String fabricpropia, long valproducto, String marca, String modelo, long stock, Blob imagen, Set<Detalleventa> detalleventas, Set<Documentacion> documentacions) {
+    public Producto(long idProducto, String nombreproducto, String tipoproducto, String descripcion, String fabricpropia, long valproducto, String marca, String modelo, long stock, String imagen, Set<Detalleventa> detalleventas, Set<Documentacion> documentacions) {
        this.idProducto = idProducto;
        this.nombreproducto = nombreproducto;
        this.tipoproducto = tipoproducto;
@@ -156,11 +156,11 @@ public class Producto  implements java.io.Serializable {
 
     
     @Column(name="IMAGEN")
-    public Blob getImagen() {
+    public String getImagen() {
         return this.imagen;
     }
     
-    public void setImagen(Blob imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 

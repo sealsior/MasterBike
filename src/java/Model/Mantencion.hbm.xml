@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-10-2021 15:45:09 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-10-2021 20:24:27 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Model.Mantencion" table="MANTENCION" schema="BDCLETA" optimistic-lock="version">
         <id name="idMantencion" type="long">
@@ -9,16 +9,22 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="usuario" class="Model.Usuario" fetch="select">
-            <column name="ID_USUARIO" precision="3" scale="0" not-null="true" />
+            <column name="ID_USUARIO" precision="10" scale="0" not-null="true" />
         </many-to-one>
         <many-to-one name="servicio" class="Model.Servicio" fetch="select">
-            <column name="ID_SERVICIO" precision="3" scale="0" not-null="true" />
+            <column name="ID_SERVICIO" precision="10" scale="0" not-null="true" />
         </many-to-one>
-        <property name="observacion" type="string">
-            <column name="OBSERVACION" length="200" />
+        <property name="retirodomicilio" type="char">
+            <column name="RETIRODOMICILIO" length="1" not-null="true" />
+        </property>
+        <property name="fecSolicitada" type="date">
+            <column name="FEC_SOLICITADA" length="7" not-null="true" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="COMENTARIOS" length="200" />
         </property>
         <property name="garantia" type="string">
-            <column name="GARANTIA" length="2" not-null="true" />
+            <column name="GARANTIA" length="2" />
         </property>
         <property name="fecingreso" type="date">
             <column name="FECINGRESO" length="7" />
@@ -26,8 +32,11 @@
         <property name="fecsalida" type="date">
             <column name="FECSALIDA" length="7" />
         </property>
-        <property name="estado" type="string">
-            <column name="ESTADO" length="10" not-null="true" />
+        <property name="estadosolicitud" type="string">
+            <column name="ESTADOSOLICITUD" length="10" not-null="true" />
+        </property>
+        <property name="valortotal" type="java.lang.Long">
+            <column name="VALORTOTAL" precision="10" scale="0" />
         </property>
     </class>
 </hibernate-mapping>

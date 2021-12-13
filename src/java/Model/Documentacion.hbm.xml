@@ -17,8 +17,8 @@
         <property name="nomdocumento" type="string">
             <column name="NOMDOCUMENTO" length="20" />
         </property>
-        <property name="documento" type="blob">
-            <column name="DOCUMENTO" />
+        <property name="documento" type="string">
+            <column name="DOCUMENTO" length="200"/>
         </property>
     </class>
 </hibernate-mapping>
