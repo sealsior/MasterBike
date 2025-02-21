@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Sebastián Silva Ortega</h1>
+<h1 align="center">Sebastián Silva Ortega</h1>
 <h3 align="center">A passionate fullstack developer from Chile</h3>
 
 - 🔭 I’m currently working on **Accenture**
@@ -10,8 +10,6 @@
 - 💬 Ask me about **Java, .NET, C#**
 
 - 📫 How to reach me **seba.silva@outlook.com**
-
-- ⚡ Fun fact **Nah**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
